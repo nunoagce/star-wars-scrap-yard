@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LayoutComponent } from './layout.component';
+import { HeroImageComponent } from './hero-image.component';
 
-describe('LayoutComponent', () => {
-  let component: LayoutComponent;
-  let fixture: ComponentFixture<LayoutComponent>;
+describe('HeroImageComponent', () => {
+  let component: HeroImageComponent;
+  let fixture: ComponentFixture<HeroImageComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [LayoutComponent]
+      imports: [HeroImageComponent]
     });
-    fixture = TestBed.createComponent(LayoutComponent);
+    fixture = TestBed.createComponent(HeroImageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

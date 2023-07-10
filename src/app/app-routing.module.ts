@@ -6,21 +6,12 @@ const routes: Routes = [
         path: "",
         pathMatch: 'full',
         loadComponent: () => import('./layout/feature/layout/layout.component').then(c => c.LayoutComponent),
-        children: [
-            {
-                path: "",
-                pathMatch: 'full',
-                redirectTo: "vehicles"
-            },
-            {
-                path: "vehicles",
-                loadComponent: () => import('./vehicles/feature/shell/shell.component').then(c => c.ShellComponent)
-            },
-            {
-                path: "parts",
-                loadComponent: () => import('./parts/feature/shell/shell.component').then(c => c.ShellComponent)
-            }
-        ]
+        // children: [
+        //     {
+        //         path: '**',
+        //         loadChildren: () => import('./features-routes').then(r => r.ROUTES)
+        //     }
+        // ]
     }
 ];
 
