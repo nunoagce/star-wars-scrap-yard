@@ -1,6 +1,6 @@
 export type Speech = {
-    type: SpeechType,
+    selectedVehicle?: string;
+    selectedPart?: string;
+    searchTerm?: string;
     inStock?: boolean
 }
-
-export type SpeechType = 'welcome' | 'search' | 'vehicle' | 'part';

@@ -1,4 +1,5 @@
-<div class="d-flex flex-row">
+<div class="d-flex mb-4">
     <app-hero-image></app-hero-image>
-    <app-hero-speech></app-hero-speech>
+    <app-hero-speech *ngIf="labels$ | async as labels" [main]="labels.main" [instruction]="labels.instruction">
+    </app-hero-speech>
 </div>
