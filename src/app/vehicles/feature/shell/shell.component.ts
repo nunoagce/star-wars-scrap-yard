@@ -7,6 +7,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { SearchInputComponent } from '../../presentation/search-input/search-input.component';
 import { PageControlsComponent } from '../../presentation/page-controls/page-controls.component';
 import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
+import { VehicleDetailsComponent } from '../../presentation/vehicle-details/vehicle-details.component';
 
 @Component({
     selector: 'app-shell',
@@ -16,7 +17,8 @@ import { animate, query, stagger, style, transition, trigger } from '@angular/an
         VehicleListElementComponent,
         SearchInputComponent,
         PageControlsComponent,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        VehicleDetailsComponent
     ],
     templateUrl: './shell.component.html',
     styleUrls: ['./shell.component.css'],

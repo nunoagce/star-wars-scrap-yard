@@ -10,8 +10,4 @@ export const ROUTES: Routes = [
         path: "vehicles",
         loadComponent: () => import('./vehicles/feature/shell/shell.component').then(c => c.ShellComponent)
     },
-    {
-        path: "parts",
-        loadComponent: () => import('./parts/feature/shell/shell.component').then(c => c.ShellComponent)
-    }
 ]

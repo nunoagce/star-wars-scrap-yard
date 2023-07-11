@@ -12,10 +12,12 @@ export class VehicleStore {
         private wattoService: WattoService
     ) { }
 
-    loadingSubject = new BehaviorSubject<boolean>(false);
+    #loadingSubject = new BehaviorSubject<boolean>(false);
+    #selectedSubject = new BehaviorSubject<Vehicle | null>(null);
+    selected$ = this.#selectedSubject.asObservable();
     count$ = this.vehicleService.count$;
     pageNavigation$ = combineLatest({
-        loading: this.loadingSubject.asObservable(),
+        loading: this.#loadingSubject.asObservable(),
         hasNextUrl: this.vehicleService.nextUrl$.pipe(map((url) => url != null)),
         hasPreviousUrl: this.vehicleService.previousUrl$.pipe(map((url) => url != null)),
     }).pipe(map((value) => {
@@ -26,10 +28,10 @@ export class VehicleStore {
     }))
 
     search(term: string): Observable<Vehicle[]> {
-        this.loadingSubject.next(true);
+        this.#loadingSubject.next(true);
         return this.vehicleService.search(term)
             .pipe(tap((results) => {
-                this.loadingSubject.next(false);
+                this.#loadingSubject.next(false);
                 if (term) {
                     this.wattoService.setSearch(term, results.length > 0)
                     return;
@@ -39,18 +41,20 @@ export class VehicleStore {
     }
 
     readPreviousPage(): Observable<Vehicle[]> {
-        this.loadingSubject.next(true);
+        this.#loadingSubject.next(true);
         return this.vehicleService.getPreviousPage()
-            .pipe(tap(() => this.loadingSubject.next(false)));
+            .pipe(tap(() => this.#loadingSubject.next(false)));
     }
 
     readNextPage(): Observable<Vehicle[]> {
-        this.loadingSubject.next(true);
+        this.#loadingSubject.next(true);
         return this.vehicleService.getNextPage()
-            .pipe(tap(() => this.loadingSubject.next(false)));
+            .pipe(tap(() => this.#loadingSubject.next(false)));
     }
 
     select(vehicle: Vehicle): void {
-        this.wattoService.selectVehicle(vehicle.name, Math.random() < 0.7)
+        const inStock = Math.random() < 0.7;
+        this.wattoService.selectVehicle(vehicle.name, inStock)
+        this.#selectedSubject.next(inStock ? vehicle : null)
     }
 }

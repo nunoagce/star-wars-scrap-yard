@@ -4,7 +4,12 @@
         [canClickPrevious]="nav.canClickPrevious" (onNext)="changePageSubject.next('next')"
         (onPrevious)="changePageSubject.next('previous')"></app-page-controls>
 </div>
-<div class="row" *ngIf="vehicles$ | async as vehicles" [@listAnimation]="nrOfEmissions">
-    <app-vehicle-list-element class="col-12 col-md-6 col-lg-3 mb-3" *ngFor="let vehicle of vehicles" [vehicle]="vehicle"
-        (onSelect)="vehicleStore.select(vehicle)"></app-vehicle-list-element>
-</div>
+<ng-container *ngIf="vehicleStore.selected$ | async as selected; else list">
+    <app-vehicle-details [vehicle]="selected"></app-vehicle-details>
+</ng-container>
+<ng-template #list>
+    <div #list class="row" *ngIf="vehicles$ | async as vehicles" [@listAnimation]="nrOfEmissions">
+        <app-vehicle-list-element class="col-12 col-md-6 col-lg-3 mb-3" *ngFor="let vehicle of vehicles"
+            [vehicle]="vehicle" (onSelect)="vehicleStore.select(vehicle)"></app-vehicle-list-element>
+    </div>
+</ng-template>
