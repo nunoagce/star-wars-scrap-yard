@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
     imports: [CommonModule],
     templateUrl: './hero-speech.component.html',
     styleUrls: ['./hero-speech.component.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroSpeechComponent implements OnInit {
 

@@ -1,0 +1,9 @@
+.headline-container {
+    background-color: aliceblue;
+    height: 250px;
+}
+
+main {
+    margin-top: 280px;
+    max-height: calc(100vh-300px);
+}

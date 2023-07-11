@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { HeroImageComponent } from '../../presentation/hero-image/hero-image.component';
 import { HeroSpeechComponent } from '../../presentation/hero-speech/hero-speech.component';
 import { WattoService } from '../../data-access/watto.service';
-import { Observable, map } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
 import { SpeechLabels } from '../../helpers/speech-labels';
+import { trigger, transition, query, style, stagger, animate } from '@angular/animations';
 
 @Component({
     selector: 'app-headline',
@@ -15,11 +16,23 @@ import { SpeechLabels } from '../../helpers/speech-labels';
     ],
     templateUrl: './headline.component.html',
     styleUrls: ['./headline.component.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    animations: [
+        trigger('speechAnimation', [
+            transition('* => *', [
+                query('app-hero-speech', style({ opacity: 0 })),
+                query('app-hero-speech', stagger('2000ms', [
+                    animate('600ms', style({ opacity: 1 }))
+                ]))
+            ])
+        ])
+    ]
 })
 export class HeadlineComponent {
 
     constructor(private watto: WattoService) { }
+
+    nrOfEmissions = 0;
 
     labels$: Observable<SpeechLabels> = this.watto.speech$.pipe(map((speech) => {
         const labels: SpeechLabels = {
@@ -59,5 +72,6 @@ export class HeadlineComponent {
         labels.instruction = 'Select a vehicle or search using the search bar'
 
         return labels;
-    }))
+    }),
+        tap(() => this.nrOfEmissions++))
 }

@@ -1,5 +1,6 @@
-<div class="d-flex mb-4">
-    <app-hero-image></app-hero-image>
-    <app-hero-speech *ngIf="labels$ | async as labels" [main]="labels.main" [instruction]="labels.instruction">
+<div class="d-flex mb-4" [@speechAnimation]="nrOfEmissions">
+    <app-hero-image class="me-5"></app-hero-image>
+    <app-hero-speech class="my-auto" *ngIf="labels$ | async as labels" [main]="labels.main"
+        [instruction]="labels.instruction">
     </app-hero-speech>
 </div>

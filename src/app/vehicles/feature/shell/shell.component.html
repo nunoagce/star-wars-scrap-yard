@@ -1,1 +1,10 @@
-<p>shell works!</p>
+<div class="d-flex justify-content-between mb-3">
+    <app-search-input [control]="searchControl"></app-search-input>
+    <app-page-controls *ngIf="pageNavigation$ | async as nav" [canClickNext]="nav.canClickNext"
+        [canClickPrevious]="nav.canClickPrevious" (onNext)="changePageSubject.next('next')"
+        (onPrevious)="changePageSubject.next('previous')"></app-page-controls>
+</div>
+<div class="row" *ngIf="vehicles$ | async as vehicles" [@listAnimation]="nrOfEmissions">
+    <app-vehicle-list-element class="col-12 col-md-6 col-lg-3 mb-3" *ngFor="let vehicle of vehicles" [vehicle]="vehicle"
+        (onSelect)="vehicleStore.select(vehicle)"></app-vehicle-list-element>
+</div>

@@ -1,0 +1,8 @@
+<div class="card" (click)="onSelect.emit()">
+    <img class="card-img-top" [src]="imageSrc" alt="{{vehicle.name}}" (error)="onImageError()">
+    <div class="card-body">
+        <p class="card-text">
+            {{vehicle.name}}
+        </p>
+    </div>
+</div>

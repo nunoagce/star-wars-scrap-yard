@@ -13,6 +13,10 @@ export class WattoService {
 
     speech$ = this.#speechSubject.asObservable();
 
+    setSearch(term: string, inStock: boolean): void {
+        this.#speechSubject.next({ searchTerm: term, inStock: inStock });
+    }
+
     selectVehicle(title: string, inStock: boolean): void {
         this.#speechSubject.next({ selectedVehicle: title, inStock: inStock });
     }
@@ -25,6 +29,10 @@ export class WattoService {
     }
 
     resetSelection() {
-        this.#speechSubject.next({ searchTerm: this.#speechSubject.getValue().searchTerm });
+        const current = this.#speechSubject.getValue();
+        if (!current.searchTerm && !current.selectedPart) {
+            return;
+        }
+        this.#speechSubject.next({ searchTerm: current.searchTerm });
     }
 }
