@@ -21,18 +21,18 @@ export class WattoService {
         this.#speechSubject.next({ selectedVehicle: title, inStock: inStock });
     }
 
-    selectPart(title: string, inStock: boolean): void {
-        const current = this.#speechSubject.getValue();
-        current.selectedPart = title;
-        current.inStock = inStock
-        this.#speechSubject.next(current);
-    }
-
     resetSelection() {
         const current = this.#speechSubject.getValue();
-        if (!current.searchTerm && !current.selectedPart) {
+        if (!current.searchTerm && !current.selectedVehicle) {
             return;
         }
         this.#speechSubject.next({ searchTerm: current.searchTerm });
     }
+
+    placeOrder() {
+        const current = this.#speechSubject.getValue();
+        current.orderPlaced = true;
+        this.#speechSubject.next(current);
+    }
+
 }

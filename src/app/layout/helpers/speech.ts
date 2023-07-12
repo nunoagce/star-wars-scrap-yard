@@ -1,6 +1,6 @@
 export type Speech = {
     selectedVehicle?: string;
-    selectedPart?: string;
+    orderPlaced?: boolean;
     searchTerm?: string;
     inStock?: boolean
 }

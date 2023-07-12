@@ -57,4 +57,9 @@ export class VehicleStore {
         this.wattoService.selectVehicle(vehicle.name, inStock)
         this.#selectedSubject.next(inStock ? vehicle : null)
     }
+
+    removeSelection(): void {
+        this.wattoService.resetSelection();
+        this.#selectedSubject.next(null)
+    }
 }

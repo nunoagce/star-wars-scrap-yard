@@ -1,1 +1,11 @@
-<p>vehicle-details works!</p>
+<div class="d-flex justify-content-between">
+    <div>
+        <p><strong>Name</strong>: {{vehicle.name}}</p>
+        <p><strong>Model</strong>: {{vehicle.model}}</p>
+        <p><strong>Manufacturer</strong>: {{vehicle.manufacturer}}</p>
+        <p><strong>Crew members required to operate</strong>: {{vehicle.crew}}</p>
+        <p><strong>Duration of consumables</strong>: {{vehicle.consumables}}</p>
+        <p><strong>Max Atmosphering Speed</strong>: {{vehicle.max_atmosphering_speed}}</p>
+    </div>
+    <img height="250" [src]="imageSrc" alt="{{vehicle.name}}" (error)="onImageError()">
+</div>

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, map, of, tap } from 'rxjs';
 import { Vehicle } from '../helpers/vehicle';
-import { ApiResponse } from '../helpers/api-response';
+import { ApiResponse } from '../../helpers/api-response';
 
 @Injectable({ providedIn: 'root' })
 export class VehicleService {

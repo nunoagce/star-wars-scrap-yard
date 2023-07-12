@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PartListComponent } from './part-list.component';
+import { PartsFormComponent } from './parts-form.component';
 
-describe('PartListComponent', () => {
-  let component: PartListComponent;
-  let fixture: ComponentFixture<PartListComponent>;
+describe('PartsFormComponent', () => {
+  let component: PartsFormComponent;
+  let fixture: ComponentFixture<PartsFormComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [PartListComponent]
+      imports: [PartsFormComponent]
     });
-    fixture = TestBed.createComponent(PartListComponent);
+    fixture = TestBed.createComponent(PartsFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

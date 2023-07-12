@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-12 col-md-4 form-group">
+        <label for="battery">Batteries</label>
+        <input [formControl]="form.controls.battery" type="number" class="form-control" id="battery">
+        <div class="error-message" *ngIf="form.controls.battery.invalid">
+            Must be zero or a positive integer.
+        </div>
+    </div>
+    <div class="col-12 col-md-4 form-group">
+        <label for="radiator">Radiators</label>
+        <input [formControl]="form.controls.radiator" type="number" class="form-control" id="radiator">
+        <div class="error-message" *ngIf="form.controls.radiator.invalid">
+            Must be zero or a positive integer.
+        </div>
+    </div>
+    <div class="col-12 col-md-4 form-group">
+        <label for="wheels">Wheels</label>
+        <input [formControl]="form.controls.wheels" type="number" class="form-control" id="wheels">
+        <div class="error-message" *ngIf="form.controls.wheels.invalid">
+            Must be zero or a positive integer.
+        </div>
+    </div>
+    <div class="col-12 mt-4">
+        <div class="alert alert-danger" *ngIf="submitted && form.invalid">
+            Must pick at least one part.
+        </div>
+    </div>
+</div>

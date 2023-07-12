@@ -40,13 +40,9 @@ export class HeadlineComponent {
             instruction: ''
         };
 
-        if (speech.selectedPart) {
-            labels.main = speech.inStock
-                ? `Selected part ${speech.selectedPart} for ${speech.selectedVehicle}`
-                : `I don't have any ${speech.selectedPart} for ${speech.selectedVehicle} in stock`;
-            labels.instruction = speech.inStock
-                ? `Review your order details and press confirm`
-                : `Select another part or click the back button to select a different vehicle`;
+        if (speech.orderPlaced) {
+            labels.main = `Working on your order for ${speech.selectedVehicle}. Come back later to pick it up.`;
+            labels.instruction = 'To place another order, click the back button to go back to the list'
             return labels;
         }
         if (speech.selectedVehicle) {

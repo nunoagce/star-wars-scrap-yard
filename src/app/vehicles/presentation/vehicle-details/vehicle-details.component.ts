@@ -16,11 +16,16 @@ export class VehicleDetailsComponent implements OnInit {
 
     imageSrc!: string;
 
-
     ngOnInit(): void {
         if (!this.vehicle) {
             throw new Error('missing vehicle input');
         }
+        let split = this.vehicle.url.split('/');
+        this.imageSrc = `/assets/vehicles/${split[split.length - 2]}.jpg`
+    }
+
+    onImageError() {
+        this.imageSrc = '/assets/placeholder.jpg';
     }
 
 }
