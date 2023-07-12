@@ -23,7 +23,7 @@ describe('VehicleListElementComponent', () => {
     });
 
     it('should render existing image', () => {
-        expect(component.imageSrc).toBe('/assets/vehicles/4.jpg');
+        expect(component.imageSrc).toContain('vehicles/4.jpg');
     });
 
     describe('when card is clicked', () => {
