@@ -14,5 +14,4 @@ import { HeadlineComponent } from './layout/feature/headline/headline.component'
     ]
 })
 export class AppComponent {
-    title = 'star-wars-scrap-yard';
 }
