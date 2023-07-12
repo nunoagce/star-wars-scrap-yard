@@ -32,7 +32,7 @@ import { PartStore } from 'src/app/parts/data-access/part.store';
         trigger('listAnimation', [
             transition('* => *', [
                 query(':enter', style({ opacity: 0.3, transform: 'scale(0.7)' }), { optional: true }),
-                query(':enter', stagger('300ms', [
+                query(':enter', stagger('500ms', [
                     animate('300ms', style({ opacity: 1, transform: 'scale(1)' }))
                 ]), { optional: true })
             ])
