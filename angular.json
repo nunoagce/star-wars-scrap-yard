@@ -36,6 +36,8 @@
                     },
                     "configurations": {
                         "production": {
+                            "outputPath": "docs",
+                            "baseHref": "https://nunoagce.github.io/star-wars-scrap-yard/",
                             "budgets": [
                                 {
                                     "type": "initial",
