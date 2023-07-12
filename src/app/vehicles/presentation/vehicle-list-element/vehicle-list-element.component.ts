@@ -23,11 +23,11 @@ export class VehicleListElementComponent implements OnInit {
             throw new Error('missing vehicle input');
         }
         let split = this.vehicle.url.split('/');
-        this.imageSrc = `/assets/vehicles/${split[split.length - 2]}.jpg`
+        this.imageSrc = `./assets/vehicles/${split[split.length - 2]}.jpg`
     }
 
     onImageError() {
-        this.imageSrc = '/assets/placeholder.jpg';
+        this.imageSrc = './assets/placeholder.jpg';
     }
 
 }

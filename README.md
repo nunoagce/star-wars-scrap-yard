@@ -1,6 +1,6 @@
 # StarWarsScrapYard
 
-You can check out the website in [GithubPages](https://www.google.pt).
+You can check out the website in [GithubPages](https://nunoagce.github.io/star-wars-scrap-yard/).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
 
